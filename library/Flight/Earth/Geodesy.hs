@@ -1,5 +1,4 @@
 {-# LANGUAGE DuplicateRecordFields #-}
-{-# LANGUAGE NamedFieldPuns #-}
 
 module Flight.Earth.Geodesy (X(..), Y(..)) where
 
