@@ -93,3 +93,26 @@ Building library for ghc-panic-translateConPatVec-lookup-0.1.0..
 8 | update G.X{x} = G.X{x = x}
 ```
 
+A later version of GHC doesn't panic.
+
+```
+# stack.yaml
+resolver: ghc-8.4.0.20180118
+compiler: ghc-8.4.0.20180118
+compiler-check: match-exact
+```
+
+```
+> stack build
+ghc-panic-translateConPatVec-lookup-0.1.0: build (lib)
+Preprocessing library for ghc-panic-translateConPatVec-lookup-0.1.0..
+Building library for ghc-panic-translateConPatVec-lookup-0.1.0..
+[2 of 3] Compiling GhcPanic12158
+
+/earth/library/GhcPanic12158.hs:9:12: error:
+    • Constructor ‘G.X’ does not have field ‘x’
+    • In the pattern: G.X {x}
+      In an equation for ‘update’: update G.X {x} = G.X {x = x}
+  |
+9 | update G.X{x} = G.X{x = x}
+```
