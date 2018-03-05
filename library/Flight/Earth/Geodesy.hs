@@ -7,8 +7,7 @@
 {-# LANGUAGE NamedFieldPuns #-}
 
 module Flight.Earth.Geodesy
-    ( GeodesyProblems(..)
-    , DirectProblem(..)
+    ( DirectProblem(..)
     , DirectSolution(..)
     , InverseProblem(..)
     , InverseSolution(..)
@@ -54,14 +53,3 @@ type DSoln = DirectSolution (DMS, DMS) DMS
 
 type IProb = InverseProblem (DMS, DMS)
 type ISoln = InverseSolution Distance DMS
-
-class GeodesyProblems a α s where
-    direct
-        :: InverseProblem a
-        -> InverseSolution s α
-        -> Maybe (DirectProblem a α s, DirectSolution a α)
-
-    inverse
-        :: DirectProblem a α s
-        -> DirectSolution a α
-        -> Maybe (InverseProblem a, InverseSolution s α)

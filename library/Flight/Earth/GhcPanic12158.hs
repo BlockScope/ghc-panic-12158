@@ -17,8 +17,7 @@ import Data.Maybe (catMaybes)
 import qualified Flight.Earth.Geodesy as G (DirectProblem(..), DirectSolution(..))
 import qualified Flight.Earth.Geodesy as I
 import Flight.Earth.Geodesy
-    ( GeodesyProblems(..)
-    , InverseProblem(..), InverseSolution(..)
+    ( InverseProblem(..), InverseSolution(..)
     , DProb, DSoln
     , IProb, ISoln
     )
