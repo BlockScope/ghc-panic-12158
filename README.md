@@ -54,7 +54,6 @@ update G.X{x} = G.X{x = x}
 
 ```
 {-# LANGUAGE NamedFieldPuns #-}
-
 module GhcPanic12158 where
 
 import qualified Geodesy as G (X(..))
