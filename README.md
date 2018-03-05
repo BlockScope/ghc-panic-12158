@@ -35,3 +35,67 @@ ghc: panic! (the 'impossible' happened)
 
 Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
 ```
+
+There are some fixes;
+
+1. Add `DuplicateRecordFields`.
+
+```
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+
+module GhcPanic12158 where
+
+import qualified Geodesy as G (X(..))
+import Geodesy (Y(..))
+
+update :: G.X a -> G.X a
+update G.X{x} = G.X{x = x}
+```
+
+2. Use qualified field names.
+
+```
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+
+module GhcPanic12158 where
+
+import qualified Geodesy as G (X(..))
+import Geodesy (Y(..))
+
+update :: G.X a -> G.X a
+update G.X{x} = G.X{x = x}
+```
+
+Interestingly, if I don't import the record with the clashing field name then GHC complains.
+
+```
+{-# LANGUAGE NamedFieldPuns #-}
+
+module GhcPanic12158 where
+
+import qualified Geodesy as G (X(..))
+
+update :: G.X a -> G.X a
+update G.X{x} = G.X{x = x}
+```
+
+```
+> stack build
+ghc-panic-translateConPatVec-lookup-0.1.0: unregistering (local file changes: library/GhcPanic12158.hs)
+ghc-panic-translateConPatVec-lookup-0.1.0: build (lib)
+Preprocessing library for ghc-panic-translateConPatVec-lookup-0.1.0..
+Building library for ghc-panic-translateConPatVec-lookup-0.1.0..
+[3 of 3] Compiling GhcPanic12158
+
+/ghc-panic-12158/earth/library/GhcPanic12158.hs:8:12: error: Not in scope: ‘x’
+  |
+8 | update G.X{x} = G.X{x = x}
+  |            ^
+
+/ghc-panic-12158/earth/library/GhcPanic12158.hs:8:21: error: Not in scope: ‘x’
+  |
+8 | update G.X{x} = G.X{x = x}
+```
+
