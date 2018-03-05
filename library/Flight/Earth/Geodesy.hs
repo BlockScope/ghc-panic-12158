@@ -1,17 +1,10 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Flight.Earth.Geodesy
-    ( DirectProblem(..)
-    , InverseProblem(..)
-    , DProb
-    ) where
-
-type DMS = Int
-type Distance = Int
+module Flight.Earth.Geodesy (DirectProblem(..), InverseProblem(..)) where
 
 -- | The inputs for the direct or forward problem in geodesy.
-data DirectProblem a α s =
+data DirectProblem a =
     DirectProblem
         { x :: a -- ^ The departure point on the ellipsoid.
         }
@@ -21,5 +14,3 @@ data InverseProblem a =
     InverseProblem
         { x :: a -- ^ The departure point.
         }
-
-type DProb = DirectProblem (DMS, DMS) DMS Distance
