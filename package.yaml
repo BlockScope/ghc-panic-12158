@@ -12,7 +12,7 @@ library:
   - base >=4.5 && <5
   source-dirs: library
   exposed-modules:
-  - Flight.Earth.Geodesy
+  - Geodesy
 author: Phil de Joux
 maintainer: phil.dejoux@blockscope.com
 name: ghc-panic-translateConPatVec-lookup
