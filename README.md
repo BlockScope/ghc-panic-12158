@@ -3,7 +3,6 @@ Minimal reproduction of https://ghc.haskell.org/trac/ghc/ticket/12158
 
 ```
 {-# LANGUAGE DuplicateRecordFields #-}
-
 module Geodesy (X(..), Y(..)) where
 
 data X a = X {x :: a}
@@ -12,7 +11,6 @@ data Y a = Y {x :: a}
 
 ```
 {-# LANGUAGE NamedFieldPuns #-}
-
 module GhcPanic12158 where
 
 import qualified Geodesy as G (X(..))
@@ -43,7 +41,6 @@ There are some fixes;
 ```
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE DuplicateRecordFields #-}
-
 module GhcPanic12158 where
 
 import qualified Geodesy as G (X(..))
@@ -71,7 +68,6 @@ Interestingly, if I don't import the record with the clashing field name then GH
 
 ```
 {-# LANGUAGE NamedFieldPuns #-}
-
 module GhcPanic12158 where
 
 import qualified Geodesy as G (X(..))
