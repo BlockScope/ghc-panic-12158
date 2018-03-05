@@ -57,7 +57,6 @@ update G.X{x} = G.X{x = x}
 
 ```
 {-# LANGUAGE NamedFieldPuns #-}
-{-# LANGUAGE DuplicateRecordFields #-}
 
 module GhcPanic12158 where
 
@@ -65,7 +64,7 @@ import qualified Geodesy as G (X(..))
 import Geodesy (Y(..))
 
 update :: G.X a -> G.X a
-update G.X{x} = G.X{x = x}
+update G.X{G.x} = G.X{G.x = x}
 ```
 
 Interestingly, if I don't import the record with the clashing field name then GHC complains.
