@@ -1,0 +1,26 @@
+# This YAML file describes your package. Stack will automatically generate a
+# Cabal file when you run `stack build`. See the hpack website for help with
+# this file: <https://github.com/sol/hpack>.
+extra-source-files:
+- package.yaml
+- stack.yaml
+ghc-options:
+- -Wall
+library:
+  dependencies:
+  - base >=4.5 && <5
+  - numbers
+  source-dirs: library
+  exposed-modules:
+  - Flight.Earth.Geodesy
+  - Flight.Earth.Bedford
+author: Phil de Joux
+maintainer: phil.dejoux@blockscope.com
+name: flight-earth
+synopsis: Distances on the WGS84 ellipsoid, the FAI sphere and the UTM projection.
+description: Distances on the Earth for hang gliding and paragliding competitons.
+category: Flight
+license: BSD3
+license-file: LICENSE.md
+github: BlockScope/flare-timing
+version: '0.1.0'

@@ -1,0 +1,42 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: bbe8f6f00330afc3a37f0a8ae41f3fa34b633482e1588cad1887df0a5dc33aba
+
+name:           flight-earth
+version:        0.1.0
+synopsis:       Distances on the WGS84 ellipsoid, the FAI sphere and the UTM projection.
+description:    Distances on the Earth for hang gliding and paragliding competitons.
+category:       Flight
+homepage:       https://github.com/BlockScope/flare-timing#readme
+bug-reports:    https://github.com/BlockScope/flare-timing/issues
+author:         Phil de Joux
+maintainer:     phil.dejoux@blockscope.com
+license:        BSD3
+license-file:   LICENSE.md
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    package.yaml
+    stack.yaml
+
+source-repository head
+  type: git
+  location: https://github.com/BlockScope/flare-timing
+
+library
+  hs-source-dirs:
+      library
+  ghc-options: -Wall
+  build-depends:
+      base >=4.5 && <5
+    , numbers
+  exposed-modules:
+      Flight.Earth.Geodesy
+      Flight.Earth.Bedford
+  other-modules:
+      Flight.Earth.GhcPanic12158
+      Paths_flight_earth
+  default-language: Haskell2010
