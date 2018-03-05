@@ -1,7 +1,7 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Flight.Earth.Geodesy (DirectProblem(..), InverseProblem(..)) where
+module Flight.Earth.Geodesy (X(..), Y(..)) where
 
-data DirectProblem a = DirectProblem {x :: a}
-data InverseProblem a = InverseProblem {x :: a}
+data X a = X {x :: a}
+data Y a = Y {x :: a}
