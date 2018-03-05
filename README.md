@@ -1,5 +1,5 @@
 # ghc-panic-12158
-Minimal reproduction of https://ghc.haskell.org/trac/ghc/ticket/12158
+Minimal reproduction of https://ghc.haskell.org/trac/ghc/ticket/12158 now with its own ticket at https://ghc.haskell.org/trac/ghc/ticket/14892.
 
 ```
 {-# LANGUAGE DuplicateRecordFields #-}
