@@ -15,11 +15,10 @@ module Flight.Earth.GhcPanic12158 where
 
 import Data.Maybe (catMaybes)
 import qualified Flight.Earth.Geodesy as G (DirectProblem(..), DirectSolution(..))
-import qualified Flight.Earth.Geodesy as I
 import Flight.Earth.Geodesy
-    ( InverseProblem(..), InverseSolution(..)
+    ( InverseProblem(..)
     , DProb, DSoln
-    , IProb, ISoln
+    , IProb
     )
 
 updateDistance

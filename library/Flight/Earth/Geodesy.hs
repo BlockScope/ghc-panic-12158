@@ -10,9 +10,8 @@ module Flight.Earth.Geodesy
     ( DirectProblem(..)
     , DirectSolution(..)
     , InverseProblem(..)
-    , InverseSolution(..)
     , DProb, DSoln
-    , IProb, ISoln
+    , IProb
     ) where
 
 type DMS = Int
@@ -36,14 +35,7 @@ data DirectSolution a α =
         { y :: a -- ^ The arrival point.
         }
 
--- | The outputs for the solution to the inverse or reverse problem in geodesy.
-data InverseSolution s α =
-    InverseSolution
-        { s :: s -- ^ The distance between departure and arrival points.
-        }
-
 type DProb = DirectProblem (DMS, DMS) DMS Distance
 type DSoln = DirectSolution (DMS, DMS) DMS
 
 type IProb = InverseProblem (DMS, DMS)
-type ISoln = InverseSolution Distance DMS
