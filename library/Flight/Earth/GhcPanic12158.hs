@@ -25,8 +25,8 @@ import Flight.Earth.Geodesy
 updateDistance
     :: (DProb, DSoln)
     -> (DProb, DSoln)
-updateDistance (G.DirectProblem{x, α₁}, soln) =
+updateDistance (G.DirectProblem{x}, soln) =
     (prob', soln)
     where
         prob' =
-            G.DirectProblem{x = x, α₁ = α₁}
+            G.DirectProblem{x = x}
